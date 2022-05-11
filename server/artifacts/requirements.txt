@@ -8,3 +8,6 @@ plotly==5.3.1
 scikit-learn==1.0.1
 scipy==1.7.1
 seaborn==0.11.2
+pycaret==2.3.10
+markupsafe==2.0.1
+pyyaml==5.4.1
