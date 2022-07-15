@@ -83,6 +83,7 @@ Average rental per month by using city to seperate
 
 ### Geographical map
 Shout out to Jonas Neri for this idea! [Source](https://www.kaggle.com/code/jonaslneri/german-rent-avg-by-postal-code)
+
 Average rental per month by using Postleitzahl to seperate.
 ![06rentalsqm](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/germany_map.png)
 
