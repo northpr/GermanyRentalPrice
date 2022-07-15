@@ -1,5 +1,6 @@
 model/data/immo_data.csv
 model/data/maps
+model/data/.DS_Store
 
 server/.DS_Store
 
