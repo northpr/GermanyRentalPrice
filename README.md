@@ -1,8 +1,5 @@
-# Due to the development of the work please check the Colab link below instead.
-
-Click on Google Colab badge: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1biEgivJEOUVS8KbeTXyb1lNgsVtbitYj)
-
 # 🇩🇪 Germany Rental Analysis, Prediction and Modelling.
+
 ## Project Overview 
 - Create virtualization to have a better understanding of the data of the rental cost in Germany.
 Engineered features from the original variable to create a better model and understanding of the factor that impacts the rental price cost in Germany.
@@ -26,6 +23,18 @@ So this kernel will be well written than my previous kernel for other people and
 **Requirement**: Python, Flask, Basic web interface for deploying model.
 **Program**: Jupyter notebook for Data Science process, Google Colab, Visual Studio Code for HTML, CSS, JavaScript to build an interface for users.
 **Packages**: np, pandas, plotly, matplotlib, lightgbm, flask, json and more.
+
+## Due to the development of the work readme.md is not 100% completed. 
+Click on Google Colab badge: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1biEgivJEOUVS8KbeTXyb1lNgsVtbitYj)
+
+## Contents:
+You could check all of the notebook work by using Colab link below.
+- Part 1: Cleaning and Visualization
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1biEgivJEOUVS8KbeTXyb1lNgsVtbitYj)
+- Part 2: Using PyCaret for Model Hyperparameters Tuning
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1lXJhdH3rGnKQ_LjBGMh8ZK-Lf2VcfLW5)
+- Part 3: Create Model
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/14XIC90Lss_izdw-PE1cgIe4eECsXrHbY)
 
 # Data Clearning
 
@@ -81,7 +90,7 @@ Average rental per month by using city to seperate
 Average rental per month by using Postleitzahl to seperate.
 ![06rentalsqm](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/germany_map.png)
 
-![07rentalsqm](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/average_rental_per_month.gif)
+![07rentalsqm](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/germany_average_map.gif)
 
 We could do more virtualization to understand more in a specific city or room type depending on what purpose you're trying to use this work in, such as focusing in only Berlin.
 
