@@ -2,12 +2,13 @@
 
 Click on Google Colab badge: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1biEgivJEOUVS8KbeTXyb1lNgsVtbitYj)
 
-# Project Overview: Rental Price in Germany Prediction, Entire Data Science Process
+# 🇩🇪 Germany Rental Analysis, Prediction and Modelling.
+## Project Overview 
 - Create virtualization to have a better understanding of the data of the rental cost in Germany.
 Engineered features from the original variable to create a better model and understanding of the factor that impacts the rental price cost in Germany.
-- Using Ridge Regression and LGBM (Similar to XGBoost but faster!) for creating the model by which has an accuracy of more than 80% from basic factors and can boost up to more than 95%, but I used only basic parameters for the users who does not sound familiar with rental in Germany.
+- Comparison between multiple models such as Ridge Regression and Light Gradient Boost (Similar to XGBoost but faster🔥) for creating the model by which has an accuracy of more than 80% from basic factors and can boost up to more than 95%.
 
-**Warning** I have deleted some files such as dataset, ipynb and model file because it is over the limit of Github. You can get my notebook files (.ipynb) and model (.pickle) in the links below.
+**Warning** I have deleted some files because it is over the limit of Github. You can get my notebook files (.ipynb) and model (.pickle). You could check my Colab links for further information.
 
 ## Purpose from this project
 
@@ -16,23 +17,23 @@ I've traveled from SEA and I don't know how much an apartment in Berlin should c
 So this kernel will be well written than my previous kernel for other people and use what I've learned in my master course and other online resources to produce something that will be practical for the real environment.
 
 ## What we expected from this kernel.
-Data cleaning to clear the outliers and remove columns that don't correlate highly to the prediction.
-- Create virtualization to have a better understanding of the data of the rental in Germany.
-- Feature engineering from the original variable to create a better model.
-- Create a tool that estimates the house cost predicted by many variables.
+- Data cleaning to clear the outliers and remove columns by using statistics method.
+- Create virtualization to have a better understanding of the data trend of the rental in Germany.
+- Feature engineering from the original variable to create a improve model performance.
+- Create a tool that estimates the house cost predicted by using only basic variables.
 
 ## Code and Resources Used
 **Requirement**: Python, Flask, Basic web interface for deploying model.
-**Program**: Jupyter notebook for Data Science process, Visual Studio Code for HTML, CSS, JavaScript to build an interface for users.
+**Program**: Jupyter notebook for Data Science process, Google Colab, Visual Studio Code for HTML, CSS, JavaScript to build an interface for users.
 **Packages**: np, pandas, plotly, matplotlib, lightgbm, flask, json and more.
 
 # Data Clearning
 
 ## Missing Values
 After scraping the data, I needed to clean it up to be usable for the model. I made many changes to make the data have a better understanding.
-- Removes rows that don't contain Rental Price.
+- Removes rows that don't correlate to the Rental Price.
 - Adding new columns: Price Per Square Meter, Additional Cost.
-- Eliminate outliers.
+- Eliminate outliers by using statistic method such as empirical rule.
 - Fill in missing numerical values by using categorical as the reference. I could know what could be the best reference by using Correlation Matrix(Heatmap) to find the best correlation to the dataset
 - Fill in categorical missing value by using mode and other factors.
 
@@ -40,23 +41,25 @@ After scraping the data, I needed to clean it up to be usable for the model. I m
 ## Feature Engineering
 - Create 'Price Per Square Meter' by using Rental and Living Space
 - Create 'Addition Cost' or cost of electricity, heating, water and other miscellaneous.
+
+Example:
 ```Python
+# Create new variables such as  `Price Per Square Meter`
 df['Pricepm2'] = df['baseRent'] / df['livingSpace']
 df['additioncost'] = df['totalRent'] - df['baseRent']
+
+# Remove outliers from service charge cost more than 1,000 euro
 df = df[(df['serviceCharge'] < 1000)]
 ```
-
-**Some example after removing outleirs**
-![01totalbase](link)
 ```Python
-fig = px.scatter(df, x='totalRent', y='baseRent')
-fig.show()
-```
-
-![02totalservice](link)
-```Python
-fig = px.scatter(df, x='totalRent', y='serviceCharge')
-fig.show()
+# Empirical Rule
+for cols in df.columns:
+    if df[cols].dtype == 'int64' or df[cols].dtype == 'float64':
+        upper_range = df[cols].mean() + 3 * df[cols].std()
+        lower_range = df[cols].mean() - 3 * df[cols].std()
+        
+        indexs = df[(df[cols] > upper_range) | (df[cols] < lower_range)].index
+        df = df.drop(indexs)
 ```
 
 # EDA
@@ -64,26 +67,21 @@ To understand the model that we want to create the prediction model. We should a
 
 ## Data Virtualization
 Normally, I love to start from the distribution for the basic understanding. Distribution Plot of 'totalRent.'
-![03distribution](link)
+![03distribution](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/distribution.png)
 
 
 
 Heatmap to check the correlation between variables
-![04correlationmap](link)
+![04correlationmap](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/correlation.png)
 
 
-Data ratio of the city that in this dataset.
-![05cityratio](link)
+Average rental per month by using city to seperate
+![05cityratio](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/average_rental_per_month.gif)
 
-Average rental per month and group by condition.
-![06rentalsqm](link)
-```Python
-f, ax = plt.subplots(figsize=(12, 12))
-sns.heatmap(df.corr().sort_values(by='totalRent',ascending=False), square = True,fmt='.2f' ,annot = True)
-```
+Average rental per month by using Postleitzahl to seperate.
+![06rentalsqm](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/germany_map.png)
 
-Average rental per month and group by city.
-![07rentalsqm](link)
+![07rentalsqm](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/average_rental_per_month.gif)
 
 We could do more virtualization to understand more in a specific city or room type depending on what purpose you're trying to use this work in, such as focusing in only Berlin.
 
@@ -91,7 +89,7 @@ We could do more virtualization to understand more in a specific city or room ty
 I would transform and scale categorical variables and numerical variables to make it fit to the model for the best result of the data.
 
 ## Ridge Regression
-One of my favorite model when I've to create any machine learning model. It reduces the parameter estimates in an effort to reduce variance, imprve prediction accuracy, and simplify interpretation.
+One of my favorite model when I've to create any machine learning model. It reduces the parameter estimates in an effort to reduce variance, improve prediction accuracy, and simplify interpretation.
 ```Python
 # Hyperparameters for 'Ridge Regression'
 from sklearn.linear_model import Ridge
@@ -135,11 +133,10 @@ Which has a very good precision rate of around 80%, and we could increase the mo
 # Productionization
 In the last step, I build a flask API and use other web applications (CSS,HTML,JS) that I've little knowledge about to build. So it might not work perfectly but I could show you and explain the basic concept of the work.
 
-This is the basic function of the web when you input all the variables and select all type of apartments, heating etc. and click estimate price.
-![03distribution](link)
+This is the basic function of the web when you input all the variables and select all type of apartments, heating etc. and click estimate price. 
+It will use the Ridge Regression model we've trained before to generate the estimated price we have to pay per month. If we've a better dataset, we might do it more precisely.
+![07page](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/prediction.png)
 
-It will use the LGB model we've trained before to generate the estimated price we have to pay per month. If we've a better dataset, we might do it more precisely.
-![03distribution](link)
 
 # Summary
 We could do a lot more such as specified in one city such as Berlin, or create other variables for the users to input. This work could develop more such as improving the interface or others, and I will try to put this work into AWS for the others to use this model for their reference in apartment finding in the future.
