@@ -1,7 +1,6 @@
 # Due to the development of the work please check the Colab link below instead.
 
-## Click Google Colab badge below:
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1biEgivJEOUVS8KbeTXyb1lNgsVtbitYj)
+Click on Google Colab badge: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1biEgivJEOUVS8KbeTXyb1lNgsVtbitYj)
 
 # Project Overview: Rental Price in Germany Prediction, Entire Data Science Process
 - Create virtualization to have a better understanding of the data of the rental cost in Germany.
