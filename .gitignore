@@ -1,0 +1,10 @@
+model/data/immo_data.csv
+model/data/maps
+
+server/.DS_Store
+
+.ipynb_checkpoints
+.idea
+.virtual_documents
+
+__pychache__

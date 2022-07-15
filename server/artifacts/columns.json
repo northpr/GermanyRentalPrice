@@ -1,0 +1,5 @@
+{"data_columns": ["livingspace", "norooms", "additioncost", "central_heating", "combined_heat_and_power_plant", "district_heating", "floor_heating", "gas_heating",
+"heat_pump", "night_storage_heater", "oil_heating", "self_contained_central_heating", "wood_pellet_heating", "other", "first_time_use", "first_time_use_after_refurbishment", "fully_renovated", "mint_condition", "modernized", "refurbished", 
+"well_kept", "apartment","ground_floor", "half_basement",
+"loft", "maisonette", "other", "penthouse", 
+"raised_ground_floor", "roof_storey", "terraced_flat", "aachen", "berlin", "bochum", "bremen", "chemnitz", "dortmund", "dresden", "duisburg", "d\u00fcsseldorf", "erzgebirgskreis", "essen", "frankfurt_am_main", "gelsenkirchen", "gera", "g\u00f6rlitz", "halle_saale", "hamburg", "hannover", "k\u00f6ln", "leipzig", "magdeburg", "mei\u00dfen", "mittelsachsen", "m\u00fcnchen", "other", "plauen", "recklinghausen", "s\u00e4chsische_schweiz_osterzgebirge", "wuppertal", "zwickau"]}
