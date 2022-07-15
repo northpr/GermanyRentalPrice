@@ -1,33 +1,24 @@
 # 🇩🇪 Germany Rental Analysis, Prediction and Modelling.
 
-## Project Overview 
+## 🧐 Project Overview 
 - Create virtualization to have a better understanding of the data of the rental cost in Germany.
 Engineered features from the original variable to create a better model and understanding of the factor that impacts the rental price cost in Germany.
 - Comparison between multiple models such as Ridge Regression and Light Gradient Boost (Similar to XGBoost but faster🔥) for creating the model by which has an accuracy of more than 80% from basic factors and can boost up to more than 95%.
 
-**Warning** I have deleted some files because it is over the limit of Github. You can get my notebook files (.ipynb) and model (.pickle). You could check my Colab links for further information.
+**❗️ Warning** I have deleted some files because it is over the limit of Github. You can get my notebook files (.ipynb) and model (.pickle). You could check my Colab links for further information.
 
-## Purpose from this project
-
-I've traveled from SEA and I don't know how much an apartment in Berlin should cost and it's tough to find an apartment at a reasonable price while I'm staying in Germany for my Master Degree. Furthermore, I need something for my Data Science Portfolio for the job application after graduation. So why not build something from scratch with the dataset on the Kaggle.
-
-So this kernel will be well written than my previous kernel for other people and use what I've learned in my master course and other online resources to produce something that will be practical for the real environment.
-
-## What we expected from this kernel.
+## 🤰🏼 What we expected from this kernel.
 - Data cleaning to clear the outliers and remove columns by using statistics method.
 - Create virtualization to have a better understanding of the data trend of the rental in Germany.
 - Feature engineering from the original variable to create a improve model performance.
 - Create a tool that estimates the house cost predicted by using only basic variables.
 
-## Code and Resources Used
+## 👨‍💻 Code and Resources Used
 **Requirement**: Python, Flask, Basic web interface for deploying model.
 **Program**: Jupyter notebook for Data Science process, Google Colab, Visual Studio Code for HTML, CSS, JavaScript to build an interface for users.
 **Packages**: np, pandas, plotly, matplotlib, lightgbm, flask, json and more.
 
-## Due to the development of the work readme.md is not 100% completed. 
-Click on Google Colab badge: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1biEgivJEOUVS8KbeTXyb1lNgsVtbitYj)
-
-## Contents:
+## 📕 Contents:
 You could check all of the notebook work by using Colab link below.
 - Part 1: Cleaning and Visualization
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1biEgivJEOUVS8KbeTXyb1lNgsVtbitYj)
@@ -36,7 +27,7 @@ You could check all of the notebook work by using Colab link below.
 - Part 3: Create Model
   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/14XIC90Lss_izdw-PE1cgIe4eECsXrHbY)
 
-# Data Clearning
+# 🧼 Data Clearning
 
 ## Missing Values
 After scraping the data, I needed to clean it up to be usable for the model. I made many changes to make the data have a better understanding.
@@ -71,7 +62,7 @@ for cols in df.columns:
         df = df.drop(indexs)
 ```
 
-# EDA
+# 📷 EDA
 To understand the model that we want to create the prediction model. We should analyze for better understanding and might clean to have a better dataset. I cannot illustrate all of the data in this overview. Instead, I will show some of the virtualizations from the notebook files.
 
 ## Data Virtualization
@@ -94,7 +85,7 @@ Average rental per month by using Postleitzahl to seperate.
 
 We could do more virtualization to understand more in a specific city or room type depending on what purpose you're trying to use this work in, such as focusing in only Berlin.
 
-# Machine Learning
+# 🤖 Machine Learning
 I would transform and scale categorical variables and numerical variables to make it fit to the model for the best result of the data.
 
 ## Ridge Regression
@@ -139,7 +130,7 @@ We could use other type of machine learning such as linear regression or random 
 - LGBM: RMSE ~ 130-140
 Which has a very good precision rate of around 80%, and we could increase the model's accuracy by inputting more factors in the models, but I choose not to because it would be difficult for newcomers to find all of the information.
 
-# Productionization
+# 🎇 Productionization
 In the last step, I build a flask API and use other web applications (CSS,HTML,JS) that I've little knowledge about to build. So it might not work perfectly but I could show you and explain the basic concept of the work.
 
 This is the basic function of the web when you input all the variables and select all type of apartments, heating etc. and click estimate price. 
