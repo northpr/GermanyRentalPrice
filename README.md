@@ -15,7 +15,9 @@ Engineered features from the original variable to create a better model and unde
 
 ## 👨‍💻 Code and Resources Used
 **Requirement**: Python, Flask, Basic web interface for deploying model.
+
 **Program**: Jupyter notebook for Data Science process, Google Colab, Visual Studio Code for HTML, CSS, JavaScript to build an interface for users.
+
 **Packages**: np, pandas, plotly, matplotlib, lightgbm, flask, json and more.
 
 ## 📕 Contents:
@@ -66,21 +68,25 @@ for cols in df.columns:
 To understand the model that we want to create the prediction model. We should analyze for better understanding and might clean to have a better dataset. I cannot illustrate all of the data in this overview. Instead, I will show some of the virtualizations from the notebook files.
 
 ## Data Virtualization
+### Distribution
 Normally, I love to start from the distribution for the basic understanding. Distribution Plot of 'totalRent.'
 ![03distribution](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/distribution.png)
 
 
-
+### Correlation with heatmap
 Heatmap to check the correlation between variables
 ![04correlationmap](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/correlation.png)
 
-
+### Scatter plot
 Average rental per month by using city to seperate
 ![05cityratio](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/average_rental_per_month.gif)
 
+### Geographical map
+Shout out to Jonas Neri for this idea! [Source](https://www.kaggle.com/code/jonaslneri/german-rent-avg-by-postal-code)
 Average rental per month by using Postleitzahl to seperate.
 ![06rentalsqm](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/germany_map.png)
 
+Interactive plot to check each of the average rental price by using Postal Code.
 ![07rentalsqm](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/germany_average_map.gif)
 
 We could do more virtualization to understand more in a specific city or room type depending on what purpose you're trying to use this work in, such as focusing in only Berlin.
@@ -125,10 +131,25 @@ params = {
 clf = lgb.train(params, d_train, 100)
 ```
 
-## Model performance.
+## Model Performance.
 We could use other type of machine learning such as linear regression or random forest to calculate and might suitable than my but I want to train myself more in this technique.
 - LGBM: RMSE ~ 130-140
 Which has a very good precision rate of around 80%, and we could increase the model's accuracy by inputting more factors in the models, but I choose not to because it would be difficult for newcomers to find all of the information.
+
+## Model Comparison
+### Compare by using the accuracy
+Root Mean Squared Error (RMSE) and Mean Absolute Error (MAE) are main metrics used to evaluate a Regression Model.
+![MAE_VS_RMSE](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/rmse_mae.png)
+
+From the plot above we could see that `Light Gradient Boost` is performing slightly better than `Ridge Regression`
+
+### Compare by using the speed
+However if we want to deploy the model for the others to use, we should consider the speed of the model and concern of the tradeoff too.
+![Time_RMSE](https://github.com/northpr/GermanyRentalPrice/blob/main/model/data/markdown_image/time_comparison.png)
+
+From the plot above we could see that `Ridge Regression` is performing way faster than `Light Gradient Boost`.
+
+
 
 # 🎇 Productionization
 In the last step, I build a flask API and use other web applications (CSS,HTML,JS) that I've little knowledge about to build. So it might not work perfectly but I could show you and explain the basic concept of the work.
